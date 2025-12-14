@@ -34,9 +34,9 @@ const ProductViewer = () => {
 
           <div className="size-control">
             <div
-              onClick={() => setScale(0.06)}
+              onClick={() => setScale('small')}
               className={clsx(
-                scale === 0.06
+                scale === 'small'
                   ? 'bg-white text-black'
                   : 'bg-transparent text-white'
               )}
@@ -44,9 +44,9 @@ const ProductViewer = () => {
               <p>14"</p>
             </div>
             <div
-              onClick={() => setScale(0.08)}
+              onClick={() => setScale('large')}
               className={clsx(
-                scale === 0.08
+                scale === 'large'
                   ? 'bg-white text-black'
                   : 'bg-transparent text-white'
               )}
@@ -62,7 +62,7 @@ const ProductViewer = () => {
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <Macbook14 scale={scale} />
+        <Macbook14 scale={scale === 'large' ? 0.08 : 0.06} />
         <OrbitControls enableZoom={false} />
       </Canvas>
     </section>
