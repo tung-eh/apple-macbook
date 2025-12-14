@@ -6,6 +6,10 @@ import Macbook14 from './Macbook14'
 
 const controlsConfig = {
   snap: true,
+  speed: 1,
+  zoom: 1,
+  azimuth: [-Infinity, Infinity] as [number, number],
+  config: { mass: 1, tension: 0, friction: 26 },
 }
 
 const ModelSwitcher = ({ scale }: { scale: MacbookStore['scale'] }) => {
