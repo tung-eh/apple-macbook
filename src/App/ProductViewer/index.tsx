@@ -4,7 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 
 import useMacbookStore from './store'
 import StudioLights from './StudioLights'
-import Macbook14 from './Macbook14'
+import ModelSwitcher from './ModelSwitcher'
 
 const ProductViewer = () => {
   const { color, setColor, scale, setScale } = useMacbookStore()
@@ -62,8 +62,7 @@ const ProductViewer = () => {
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <Macbook14 scale={scale === 'large' ? 0.08 : 0.06} />
-        <OrbitControls enableZoom={false} />
+        <ModelSwitcher scale={scale} />
       </Canvas>
     </section>
   )

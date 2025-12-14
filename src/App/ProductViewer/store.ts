@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface MacbookStore {
+export interface MacbookStore {
   color: string
   setColor: (color: string) => void
   scale: 'large' | 'small'
