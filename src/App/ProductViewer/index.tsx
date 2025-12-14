@@ -57,6 +57,7 @@ const ProductViewer = () => {
       </div>
 
       <Canvas id="canvas">
+        <ambientLight intensity={1} />
         <Macbook14 scale={scale} />
         <OrbitControls />
       </Canvas>
