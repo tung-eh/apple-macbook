@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Box, OrbitControls } from '@react-three/drei'
 
 import useMacbookStore from './store'
+import Macbook14 from './Macbook14'
 
 const ProductViewer = () => {
   const { color, setColor, scale, setScale } = useMacbookStore()
@@ -56,7 +57,7 @@ const ProductViewer = () => {
       </div>
 
       <Canvas id="canvas">
-        <Box scale={10 * scale} material-color={color} />
+        <Macbook14 scale={scale} />
         <OrbitControls />
       </Canvas>
     </section>
