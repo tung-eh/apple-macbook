@@ -1,4 +1,6 @@
 import clsx from 'clsx'
+import { Canvas } from '@react-three/fiber'
+import { Box, OrbitControls } from '@react-three/drei'
 
 import useMacbookStore from './store'
 
@@ -52,6 +54,11 @@ const ProductViewer = () => {
           </div>
         </div>
       </div>
+
+      <Canvas id="canvas">
+        <Box />
+        <OrbitControls />
+      </Canvas>
     </section>
   )
 }
