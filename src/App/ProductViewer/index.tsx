@@ -56,7 +56,7 @@ const ProductViewer = () => {
       </div>
 
       <Canvas id="canvas">
-        <Box />
+        <Box scale={10 * scale} material-color={color} />
         <OrbitControls />
       </Canvas>
     </section>
