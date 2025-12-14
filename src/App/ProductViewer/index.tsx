@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import clsx from 'clsx'
 
+import useMacbookStore from './store'
+
 const ProductViewer = () => {
-  const [color, setColor] = useState('#adb5bd')
-  const [scale, setScale] = useState(0.06)
+  const { color, setColor, scale, setScale } = useMacbookStore()
 
   return (
     <section id="product-viewer">
