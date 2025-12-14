@@ -109,6 +109,10 @@
   }
 }
 
+* {
+  scrollbar-color: var(--color-dark-100) var(--color-black);
+}
+
 html {
   width: 100vw;
   overflow-x: hidden;
