@@ -31,7 +31,7 @@ const moveGroup = (group: THREE.Group | null, x: number) => {
 
 const controlsConfig = {
   snap: true,
-  speed: 1,
+  speed: 2,
   zoom: 1,
   azimuth: [-Infinity, Infinity] as [number, number],
   config: { mass: 1, tension: 0, friction: 26 },
