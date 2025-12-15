@@ -38,7 +38,7 @@ const controlsConfig = {
 }
 
 const ModelSwitcher = () => {
-  const { scale } = useMacbookStore()
+  const { color, scale } = useMacbookStore()
 
   const smallMacbookRef = useRef<THREE.Group>(null)
   const largeMacbookRef = useRef<THREE.Group>(null)
@@ -67,12 +67,12 @@ const ModelSwitcher = () => {
     <>
       <PresentationControls {...controlsConfig}>
         <group ref={largeMacbookRef}>
-          <Macbook16 scale={scaleMap.large} />
+          <Macbook16 color={color} scale={scaleMap.large} />
         </group>
       </PresentationControls>
       <PresentationControls {...controlsConfig}>
         <group ref={smallMacbookRef}>
-          <Macbook14 scale={scaleMap.small} />
+          <Macbook14 color={color} scale={scaleMap.small} />
         </group>
       </PresentationControls>
     </>
