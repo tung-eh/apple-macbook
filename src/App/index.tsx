@@ -15,6 +15,7 @@ function App() {
       <Hero />
       <ProductViewer />
       <Showcase />
+      <div className="h-screen" />
     </main>
   )
 }
