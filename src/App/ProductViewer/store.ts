@@ -5,8 +5,6 @@ export interface MacbookStore {
   setColor: (color: string) => void
   scale: 'large' | 'small'
   setScale: (scale: 'large' | 'small') => void
-  texture: string
-  setTexture: (texture: string) => void
 }
 
 const useMacbookStore = create<MacbookStore>((set) => ({
@@ -16,11 +14,7 @@ const useMacbookStore = create<MacbookStore>((set) => ({
   scale: 'large',
   setScale: (scale) => set({ scale }),
 
-  texture: '/videos/feature-1.mp4',
-  setTexture: (texture) => set({ texture }),
-
-  reset: () =>
-    set({ color: '#2e2c2e', scale: 'large', texture: '/videos/feature-1.mp4' }),
+  reset: () => set({ color: '#2e2c2e', scale: 'large' }),
 }))
 
 export default useMacbookStore
