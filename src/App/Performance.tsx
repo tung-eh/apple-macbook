@@ -1,3 +1,8 @@
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
+import { useMediaQuery } from 'react-responsive'
+
 const performanceImages = [
   { id: 'p1', src: '/performance1.png' },
   { id: 'p2', src: '/performance2.png' },
@@ -8,9 +13,104 @@ const performanceImages = [
   { id: 'p7', src: '/performance7.png' },
 ]
 
+const performanceImgPositions = [
+  {
+    id: 'p1',
+    left: 5,
+    bottom: 65,
+  },
+  {
+    id: 'p2',
+    right: 10,
+    bottom: 60,
+  },
+  {
+    id: 'p3',
+    right: -5,
+    bottom: 45,
+  },
+  {
+    id: 'p4',
+    right: -10,
+    bottom: 0,
+  },
+  {
+    id: 'p5',
+    left: 20,
+    bottom: 50,
+  },
+  {
+    id: 'p6',
+    left: 2,
+    bottom: 30,
+  },
+  {
+    id: 'p7',
+    left: -5,
+    bottom: 0,
+  },
+]
+
 const Performance = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+  const sectionRef = useRef(null)
+
+  useGSAP(
+    () => {
+      const sectionEl = sectionRef.current
+      if (!sectionEl) return
+
+      // Text Animation
+      gsap.fromTo(
+        '.content p',
+        { opacity: 0, y: 10 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: '.content p',
+            start: 'top bottom',
+            end: 'top center',
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        }
+      )
+
+      if (isMobile) return
+
+      // Image Positioning Timeline
+      const tl = gsap.timeline({
+        defaults: { duration: 2, ease: 'power1.inOut', overwrite: 'auto' },
+        scrollTrigger: {
+          trigger: sectionEl,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      })
+
+      // Position Each Performance Image
+      performanceImgPositions.forEach((item) => {
+        if (item.id === 'p5') return
+
+        const selector = `.${item.id}`
+        const vars = { left: '', right: '', bottom: '', transform: '' }
+
+        if (typeof item.left === 'number') vars.left = `${item.left}%`
+        if (typeof item.right === 'number') vars.right = `${item.right}%`
+        if (typeof item.bottom === 'number') vars.bottom = `${item.bottom}%`
+
+        tl.to(selector, vars, 0)
+      })
+    },
+    { scope: sectionRef, dependencies: [isMobile] }
+  )
+
   return (
-    <section id="performance">
+    <section id="performance" ref={sectionRef}>
       <h2>Next-level graphics performance. Game on.</h2>
 
       <div className="wrapper">
