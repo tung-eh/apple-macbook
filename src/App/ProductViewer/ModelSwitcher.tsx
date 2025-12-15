@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useMediaQuery } from 'react-responsive'
 
-import type { MacbookStore } from './store'
+import useMacbookStore from './store'
 import Macbook14 from './Macbook14'
 import Macbook16 from './Macbook16'
 
@@ -37,7 +37,9 @@ const controlsConfig = {
   config: { mass: 1, tension: 0, friction: 26 },
 }
 
-const ModelSwitcher = ({ scale }: { scale: MacbookStore['scale'] }) => {
+const ModelSwitcher = () => {
+  const { scale } = useMacbookStore()
+
   const smallMacbookRef = useRef<THREE.Group>(null)
   const largeMacbookRef = useRef<THREE.Group>(null)
   const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })

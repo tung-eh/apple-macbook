@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 
 import useMacbookStore from './store'
 import StudioLights from './StudioLights'
@@ -62,7 +61,7 @@ const ProductViewer = () => {
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
         <StudioLights />
-        <ModelSwitcher scale={scale} />
+        <ModelSwitcher />
       </Canvas>
     </section>
   )
