@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Hero from './Hero'
 import ProductViewer from './ProductViewer'
 import Showcase from './Showcase'
+import Performance from './Performance'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,7 +16,7 @@ function App() {
       <Hero />
       <ProductViewer />
       <Showcase />
-      <div className="h-screen" />
+      <Performance />
     </main>
   )
 }
