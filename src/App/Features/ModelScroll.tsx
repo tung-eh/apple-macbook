@@ -19,7 +19,11 @@ const ModelScroll = () => {
           </Html>
         }
       >
-        <Macbook scale={isMobile ? 0.05 : 0.08} position={[0, -1, 0]} />
+        <Macbook
+          scale={isMobile ? 0.05 : 0.08}
+          position={[0, -1, 0]}
+          texturePath="/videos/feature-1.mp4"
+        />
       </Suspense>
     </group>
   )
