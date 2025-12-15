@@ -1,8 +1,9 @@
 import clsx from 'clsx'
 import { Canvas } from '@react-three/fiber'
 
+import StudioLights from 'src/App/shared/StudioLights'
+
 import useMacbookStore from './store'
-import StudioLights from './StudioLights'
 import ModelSwitcher from './ModelSwitcher'
 
 const ProductViewer = () => {
