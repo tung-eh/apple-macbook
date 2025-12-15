@@ -1,4 +1,24 @@
+import { useMediaQuery } from 'react-responsive'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+
 const Highlights = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+
+  useGSAP(() => {
+    gsap.to(['.left-column', '.right-column'], {
+      scrollTrigger: {
+        trigger: '#highlights',
+        start: isMobile ? 'bottom bottom' : 'top center',
+      },
+      y: 0,
+      opacity: 1,
+      stagger: 0.5,
+      duration: 1,
+      ease: 'power1.inOut',
+    })
+  })
+
   return (
     <section id="highlights">
       <h2>There’s never been a better time to upgrade.</h2>
